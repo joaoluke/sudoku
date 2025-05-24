@@ -4,10 +4,11 @@ import "../styles/Cells.css";
 const Cell = ({
   value,
   readOnly,
-  onChange,
+  onChangeCell,
   onSelect,
   isSelected,
   highlight,
+  isError,
 }) => {
   const classNames = ["sudoku-cell"];
   if (readOnly) classNames.push("readonly");
@@ -16,6 +17,7 @@ const Cell = ({
   if (highlight?.col) classNames.push("highlight-col");
   if (highlight?.block) classNames.push("highlight-block");
   if (highlight?.sameValue) classNames.push("highlight-same-value");
+  if (isError) classNames.push('error');
 
   return (
     <input
@@ -25,10 +27,10 @@ const Cell = ({
       value={value || ""}
       onFocus={onSelect}
       onClick={onSelect}
-      onBlur={() => onSelect(null, null)}
+      onBlur={onSelect}
       onChange={(e) => {
         const val = e.target.value;
-        if (/^[1-9]?$/.test(val)) onChange(val);
+        if (/^[1-9]?$/.test(val)) onChangeCell(val);
       }}
       readOnly={readOnly}
     />

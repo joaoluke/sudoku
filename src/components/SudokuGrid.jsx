@@ -4,10 +4,10 @@ import "../styles/SudokuGrid.css";
 
 const SudokuGrid = ({
   board,
-  onChange,
+  handleChange,
   onSelect,
-  isSelected,
   selectedCell,
+  errorCells,
 }) => {
   const selectedValue =
     selectedCell.row !== null && selectedCell.col !== null
@@ -41,13 +41,20 @@ const SudokuGrid = ({
             const isSameValue =
               selectedValue !== "" && cell.value === selectedValue;
 
+            const isError = errorCells.some(
+              (ec) => ec[0] === rowIndex && ec[1] === colIndex
+            );
+
             return (
               <Cell
                 key={`${rowIndex}-${colIndex}`}
                 value={cell.value}
                 readOnly={cell.readOnly}
-                onChange={(val) => onChange(rowIndex, colIndex, val)}
+                onChangeCell={(val) => {
+                  handleChange(rowIndex, colIndex, val);
+                }}
                 onSelect={() => onSelect(rowIndex, colIndex)}
+                isError={isError}
                 isSelected={
                   selectedCell.row === rowIndex && selectedCell.col === colIndex
                 }

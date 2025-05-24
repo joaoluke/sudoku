@@ -7,3 +7,23 @@
   align-items: center;
   flex-direction: column;
 }
+
+.victory {
+  color: darkgreen;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.buttons-levels {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-direction: column;
+}
