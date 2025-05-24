@@ -23,6 +23,7 @@ const Cell = ({
     <input
       className={classNames.join(" ")}
       type="text"
+      readOnly
       maxLength={1}
       value={value || ""}
       onFocus={onSelect}
@@ -32,7 +33,6 @@ const Cell = ({
         const val = e.target.value;
         if (/^[1-9]?$/.test(val)) onChangeCell(val);
       }}
-      readOnly={readOnly}
     />
   );
 };
