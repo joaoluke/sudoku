@@ -1,0 +1,22 @@
+.number-pad {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.number-pad button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .number-pad {
+        max-width: 10rem;
+      }
+}

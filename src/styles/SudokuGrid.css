@@ -1,0 +1,41 @@
+.sudoku-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 2px solid #979797;
+    padding: 4px;
+}
+
+.sudoku-row {
+    display: flex;
+    gap: 2px;
+}
+
+.sudoku-cell.readonly {
+    font-weight: bold;
+    color: darkblue
+}
+
+.sudoku-row:nth-child(3n) {
+    margin-bottom: 4px;
+}
+
+.sudoku-cell:nth-child(3n) {
+    margin-right: 4px;
+}
+
+.sudoku-cell.highlight-row,
+.sudoku-cell.highlight-col,
+.sudoku-cell.highlight-block {
+  background-color: #004121;
+}
+
+.sudoku-cell.highlight-same-value {
+  background-color: #004121;
+}
+
+.sudoku-cell.selected {
+  border: 2px solid #007bff;
+  background-color: #004121;
+  opacity: 0.7;
+}
